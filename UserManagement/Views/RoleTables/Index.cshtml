@@ -1,0 +1,39 @@
+﻿@model IEnumerable<UserManagement.Models.RoleTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome To Roles</h2>
+
+<p>
+    <button style="background-color:lightgray;padding:8px;border-radius:5px;"> @Html.ActionLink("Add Role", "Create",new { @class="btn btn-primary"})</button>
+</p>
+<table class="table" style="border:1px solid black;">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.RoleSlug)
+        </th>
+        <th style="border:1px solid black;">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.RoleSlug)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoleID },new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoleID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoleID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

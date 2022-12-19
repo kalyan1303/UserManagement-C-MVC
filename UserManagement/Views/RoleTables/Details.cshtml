@@ -1,0 +1,35 @@
+﻿@model UserManagement.Models.RoleTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:gold;">Details</h2>
+
+<div class="container"style="border:1px solid black;">
+    <h4>RoleTable</h4>
+    <hr />
+
+    <dl class="dl-horizontal" >
+        <dt >
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleSlug)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleSlug)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoleID },new { @class="btn btn-primary"}) |
+  <button style="background-color:orangered;padding:5px;border-radius:5px;">  @Html.ActionLink("Back to Roles", "Index", new { @class = "btn btn-primary"} )</button>
+</p>

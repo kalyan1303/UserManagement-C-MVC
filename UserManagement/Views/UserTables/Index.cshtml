@@ -1,0 +1,75 @@
+﻿@model IEnumerable<UserManagement.Models.UserTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome To Users</h2>
+
+<p>
+    <button  style="background-color:lightgray;padding:8px;border-radius:5px;"> @Html.ActionLink("Add User", "Create", new { @class = "btn btn-primary" })</button>
+</p>
+<table class="table" style="border:1px solid black;">
+    <tr style="border:1px solid black;" >
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.AddOn)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Signup)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.RoleTable.Role)
+        </th>
+        <th style="border:1px solid black;">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.AddOn)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Signup)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.RoleTable.Role)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
